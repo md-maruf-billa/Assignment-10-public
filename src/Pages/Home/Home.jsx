@@ -1,9 +1,13 @@
 import React from 'react';
+import Banner from '../../Components/Banner/Banner';
 
 const Home = () => {
     return (
-        <div className='font-rancho'>
+        <div >
             
+            {/* ------------Banner Slide Hare----------- */}
+
+            <Banner/>
         </div>
     );
 };
