@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import background from '../../assets/image/formbg.png'
+import { userContext } from '../../Utils/DataProvider/DataProvider';
 
 const AddCraftItems = () => {
+    //------------get current user form context-----------
+    const {currentUser} = useContext(userContext);
+    const email = currentUser.email;
+    const userName = currentUser.displayName;
+
+
     const handelAddNewCoffee = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -22,7 +29,7 @@ const AddCraftItems = () => {
 
         // ---------Create Coffee Object-------
 
-        const newCoffee = { name, category, description, price, ratings,customizable,processing,stock, photoURL };
+        const newCoffee = { name, category, description, price, ratings,customizable,processing,stock, photoURL,email,userName };
         console.log(newCoffee)
 
 

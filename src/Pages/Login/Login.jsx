@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     //---------Get Data form context--------------
-    const { loginUser } = useContext(userContext);
+    const { loginUser, googleLogin } = useContext(userContext);
 
     const [eye, setEye] = useState(true);
     const location = useLocation();
@@ -46,7 +46,26 @@ const Login = () => {
         setEye(!eye);
     }
     // --------Handel google login------
-
+    const handelSocialLogin = (socialAccount) => {
+        if (socialAccount === 'google') {
+            googleLogin()
+                .then(res => {
+                    Swal.fire({
+                        title: "Congratulation",
+                        text: "You are successfully Logged In.",
+                        icon: "success"
+                    });
+                })
+                .catch(err => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: `${err.message.split("/")[1].replace(")", "")}`,
+                        footer: ''
+                    });
+                })
+        }
+    }
 
     return (
         <div
