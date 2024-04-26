@@ -3,6 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import Structure from '../Structure/Structure';
 import Home from '../Home/Home';
 import Error from '../../Components/Error/Error';
+import Login from '../Login/Login';
+import Registration from '../Registration/Registration';
+import AddCraftItems from '../AddCraftItems/AddCraftItems';
 
 const Router = createBrowserRouter([
     {
@@ -13,6 +16,18 @@ const Router = createBrowserRouter([
             {
                 path:"/",
                 element:<Home/>
+            },
+            {
+                path:"/login",
+                element:<Login/>
+            },
+            {
+                path:"/registration",
+                element:<Registration/>
+            },
+            {
+                path:"add-craft-items",
+                element:<AddCraftItems/>
             }
         ]
     }

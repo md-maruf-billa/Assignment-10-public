@@ -1,16 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
+import Button from '../../Utils/Button';
 const Nav = () => {
 
     const navElement = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="all-art-craft-items">All Art & craft Items</NavLink></li>
-        <li><NavLink to="add-craft-items">Add Craft Item</NavLink></li>
-        <li><NavLink to="my-art-craft-list">My Art&Craft List</NavLink></li>
+        <li><NavLink to="/all-art-craft-items">All Art & craft Items</NavLink></li>
+        <li><NavLink to="/add-craft-items">Add Craft Item</NavLink></li>
+        <li><NavLink to="/my-art-craft-list">My Art&Craft List</NavLink></li>
     </>
     return (
-        <div >
+        <div className=''>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -32,8 +32,11 @@ const Nav = () => {
                         }
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end space-x-2">
+                    <Link to={"/login"} ><Button btnName={"Login"} /></Link>
+                    <Link to={"/registration"} ><Button btnName={"Register"}/></Link>
+
+                    
                 </div>
             </div>
         </div>
