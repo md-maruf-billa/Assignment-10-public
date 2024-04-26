@@ -6,6 +6,8 @@ import { FaEyeSlash } from 'react-icons/fa6';
 import formbg from '../../assets/image/formbg.png'
 import { userContext } from '../../Utils/DataProvider/DataProvider';
 import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
+import auth from '../../Utils/FireBase/firebase.config';
 
 const Registration = () => {
     const { signUpUser } = useContext(userContext)
@@ -27,11 +29,18 @@ const Registration = () => {
         const photoURL = data.photoURL;
         signUpUser(email, password)
             .then(result => {
-                Swal.fire({
-                    title: "Congratulation",
-                    text: "You are successfully registered.",
-                    icon: "success"
-                });
+                updateProfile(auth.currentUser, {
+                    displayName:firstName +" "+lastName, 
+                    photoURL: photoURL
+                })
+                    .then(res => {
+                        Swal.fire({
+                            title: "Congratulation",
+                            text: "You are successfully registered.",
+                            icon: "success"
+                        });
+                    })
+
             })
             .catch(err => {
                 Swal.fire({

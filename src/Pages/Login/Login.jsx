@@ -5,27 +5,48 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import formbg from '../../assets/image/formbg.png'
+import { userContext } from '../../Utils/DataProvider/DataProvider';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
+
+    //---------Get Data form context--------------
+    const { loginUser } = useContext(userContext);
+
     const [eye, setEye] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
     const navigateRoute = () => { navigate(location.state ? location.state : "/") };
-   
+
     const {
         register,
         handleSubmit
     } = useForm()
     const handelLogin = (data) => {
-        
+        loginUser(data.email, data.password)
+            .then(res => {
+                Swal.fire({
+                    title: "Congratulation",
+                    text: "You are successfully Logged In.",
+                    icon: "success"
+                });
+            })
+            .catch(err => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Incorrect username or password.",
+                    footer: ''
+                });
+            })
     }
     // ----------------Handel Password Showing---------
-    const handelEye=()=>{
+    const handelEye = () => {
         setEye(!eye);
     }
     // --------Handel google login------
- 
+
 
     return (
         <div
@@ -33,14 +54,14 @@ const Login = () => {
             data-aos-duration="1500"
             className='min-h-[calc(100vh-345px)] mt-[68px] mb-5 flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
 
-            <form onSubmit={handleSubmit(handelLogin)} className='px-10 md:px-14 py-10 rounded-lg border-2 border-[#FF76CE]' style={{backgroundImage:`url(${formbg})`}}>
+            <form onSubmit={handleSubmit(handelLogin)} className='px-10 md:px-14 py-10 rounded-lg border-2 border-[#FF76CE]' style={{ backgroundImage: `url(${formbg})` }}>
                 <h3 className='text-center text-5xl mb-10 text-[#FF76CE] font-rancho'>Login Now</h3>
 
                 <div className='flex flex-col md:w-[400px] gap-12'>
                     <input {...register("email")} className='dark:text-white border-b-2 outline-none bg-transparent' required type="email" placeholder='Username or Email' />
 
                     <div className='relative'>
-                        <input {...register("password")} className='dark:text-white border-b-2 outline-none bg-transparent w-full' required type={`${eye?"password":"text"}`} placeholder='Password' />
+                        <input {...register("password")} className='dark:text-white border-b-2 outline-none bg-transparent w-full' required type={`${eye ? "password" : "text"}`} placeholder='Password' />
                         <div className="absolute right-0 top-1/2 -translate-y-1/2">
                             {
                                 eye ? <VscEye onClick={handelEye} className='text-2xl text-[#5a5a5a] cursor-pointer'></VscEye> :

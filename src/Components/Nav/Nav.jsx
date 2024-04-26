@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '../../Utils/Button';
+import { userContext } from '../../Utils/DataProvider/DataProvider';
+import { FaUser } from 'react-icons/fa6';
+import Swal from 'sweetalert2';
 const Nav = () => {
 
     const navElement = <>
@@ -9,8 +12,32 @@ const Nav = () => {
         <li><NavLink to="/add-craft-items">Add Craft Item</NavLink></li>
         <li><NavLink to="/my-art-craft-list">My Art&Craft List</NavLink></li>
     </>
+
+
+    // -----------get user from context-----------
+    const { currentUser, logOutUser } = useContext(userContext);
+
+    // -----------Handel logOut user--------
+    const logOut = () => {
+        logOutUser()
+            .then(res => {
+                Swal.fire({
+                    title: "Congratulation",
+                    text: "You are successfully LogOut.",
+                    icon: "success"
+                });
+            })
+            .catch(err => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${err.message.split("/")[1].replace(")", "")}`,
+                    footer: ''
+                });
+            })
+    }
     return (
-        <div className=''>
+        <div className='z-50'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -32,11 +59,39 @@ const Nav = () => {
                         }
                     </ul>
                 </div>
-                <div className="navbar-end space-x-2">
-                    <Link to={"/login"} ><Button btnName={"Login"} /></Link>
-                    <Link to={"/registration"} ><Button btnName={"Register"}/></Link>
+                <div className="navbar-end">
+                    {
+                        currentUser.email ?
+                            <div className="dropdown dropdown-end z-50">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        {
+                                            currentUser.photoURL ?
+                                                <img alt="Your Profile Image" src={currentUser?.photoURL} />
+                                                :
+                                                <FaUser className='text-4xl' />
+                                        }
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                            <span className="badge">New</span>
+                                        </a>
+                                    </li>
+                                    <li><a>Settings</a></li>
+                                    <li onClick={logOut}><a>Logout</a></li>
+                                </ul>
+                            </div>
+                            :
+                            <div className='space-x-2'>
+                                <Link to={"/login"} ><Button btnName={"Login"} /></Link>
+                                <Link to={"/registration"} ><Button btnName={"Register"} /></Link>
+                            </div>
+                    }
 
-                    
+
                 </div>
             </div>
         </div>
@@ -44,3 +99,5 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
