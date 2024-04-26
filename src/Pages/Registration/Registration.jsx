@@ -17,7 +17,10 @@ const Registration = () => {
         handleSubmit,
     } = useForm()
     const handelRegister = (data) => {
-        const email = data.email;
+        const firstName = data.firstName;
+        const lastName = data.lastName;
+        const password = strongPass;
+        const photoURL = data.photoURL;
         
 
     }
