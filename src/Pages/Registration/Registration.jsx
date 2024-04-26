@@ -4,14 +4,17 @@ import { useForm } from "react-hook-form"
 import { VscEye } from 'react-icons/vsc';
 import { FaEyeSlash } from 'react-icons/fa6';
 import formbg from '../../assets/image/formbg.png'
+import { userContext } from '../../Utils/DataProvider/DataProvider';
+import Swal from 'sweetalert2';
 
 const Registration = () => {
+    const { signUpUser } = useContext(userContext)
     const navigate = useNavigate();
     const redirectUser = () => navigate("/user-profile")
     const [passErr, setPassErr] = useState('');
     const [strongPass, setStrongPass] = useState("");
     const [successPass, setSuccessPass] = useState("")
-    const [eye,setEye] = useState(true)
+    const [eye, setEye] = useState(true)
     const {
         register,
         handleSubmit,
@@ -19,9 +22,25 @@ const Registration = () => {
     const handelRegister = (data) => {
         const firstName = data.firstName;
         const lastName = data.lastName;
+        const email = data.email;
         const password = strongPass;
         const photoURL = data.photoURL;
-        
+        signUpUser(email, password)
+            .then(result => {
+                Swal.fire({
+                    title: "Congratulation",
+                    text: "You are successfully registered.",
+                    icon: "success"
+                });
+            })
+            .catch(err => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${err.message.split("/")[1].replace(")", "")}`,
+                    footer: ''
+                });
+            })
 
     }
     const managePassword = (e) => {
@@ -58,7 +77,7 @@ const Registration = () => {
     }
 
     // ----------Handel showing password and hide-------
-    const handelEye =()=>{
+    const handelEye = () => {
         setEye(!eye)
     }
 
@@ -67,8 +86,8 @@ const Registration = () => {
             data-aos="zoom-in-up"
             data-aos-duration="1500"
             className='min-h-screen container mx-auto flex  justify-center items-center  text-black px-3 md:px-0 my-5' >
-           
-            <form onSubmit={handleSubmit(handelRegister)} className=' px-10 md:px-14 py-10 rounded-lg border-2 border-[#FF76CE]' style={{backgroundImage:`url(${formbg})`}}>
+
+            <form onSubmit={handleSubmit(handelRegister)} className=' px-10 md:px-14 py-10 rounded-lg border-2 border-[#FF76CE]' style={{ backgroundImage: `url(${formbg})` }}>
                 <h3 className='text-center font-rancho text-5xl mb-10 text-[#FF76CE]'>Register Now</h3>
 
                 <div className='flex flex-col md:w-[400px] gap-12 *:bg-transparent dark:text-white'>
@@ -78,7 +97,7 @@ const Registration = () => {
                     <input {...register('photoURL')} className='border-b-2 outline-none' type="text" placeholder='Photo URL' />
 
                     <div className='relative'>
-                        <input {...register('password')} onChange={managePassword} className='border-b-2 bg-transparent w-full outline-none' required type={`${eye?"password":"text"}`} placeholder='Password' />
+                        <input {...register('password')} onChange={managePassword} className='border-b-2 bg-transparent w-full outline-none' required type={`${eye ? "password" : "text"}`} placeholder='Password' />
                         <div className="absolute right-0 top-1/2 -translate-y-1/2">
                             {
                                 eye ? <VscEye onClick={handelEye} className='text-2xl text-[#5a5a5a] cursor-pointer'></VscEye> :

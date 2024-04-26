@@ -8,9 +8,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Router from './Pages/Router/Router';
+import DataProvider from './Utils/DataProvider/DataProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={Router}></RouterProvider>
+    <DataProvider>
+      <RouterProvider router={Router}></RouterProvider>
+    </DataProvider>
   </React.StrictMode>,
 )
