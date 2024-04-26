@@ -4,6 +4,7 @@ import Button from '../../Utils/Button';
 import { userContext } from '../../Utils/DataProvider/DataProvider';
 import { FaUser } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
+import { Tooltip } from 'react-tooltip';
 const Nav = () => {
 
     const navElement = <>
@@ -62,27 +63,36 @@ const Nav = () => {
                 <div className="navbar-end">
                     {
                         currentUser.email ?
-                            <div className="dropdown dropdown-end z-50">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        {
-                                            currentUser.photoURL ?
-                                                <img alt="Your Profile Image" src={currentUser?.photoURL} />
-                                                :
-                                                <FaUser className='text-4xl' />
-                                        }
+                            <div>
+                                <div className="dropdown dropdown-end z-50">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div data-tooltip-id="my-tooltip" className="w-10 rounded-full">
+                                            {
+                                                currentUser.photoURL ?
+                                                    <img alt="Your Profile Image" src={currentUser?.photoURL} />
+                                                    :
+                                                    <FaUser className='text-4xl' />
+                                            }
+                                        </div>
                                     </div>
+                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                        <li>
+                                            <a className="justify-between">
+                                                Profile
+                                                <span className="badge">New</span>
+                                            </a>
+                                        </li>
+                                        <li><a>Settings</a></li>
+                                        <li onClick={logOut}><a>Logout</a></li>
+                                    </ul>
                                 </div>
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li>
-                                        <a className="justify-between">
-                                            Profile
-                                            <span className="badge">New</span>
-                                        </a>
-                                    </li>
-                                    <li><a>Settings</a></li>
-                                    <li onClick={logOut}><a>Logout</a></li>
-                                </ul>
+                                <Tooltip id='my-tooltip'>
+                                    <div>
+                                        <h3>{currentUser.displayName}</h3>
+                                        <h3>{currentUser.email}</h3>
+                                        
+                                    </div>
+                                </Tooltip>
                             </div>
                             :
                             <div className='space-x-2'>
