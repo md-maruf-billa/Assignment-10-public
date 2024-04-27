@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Button from '../../Utils/Button';
@@ -7,12 +7,12 @@ import { userContext } from '../../Utils/DataProvider/DataProvider';
 
 const AddCraftItems = () => {
     //------------get current user form context-----------
-    const {currentUser} = useContext(userContext);
+    const { currentUser } = useContext(userContext);
     const email = currentUser.email;
     const userName = currentUser.displayName;
 
 
-    const handelAddNewCoffee = (event) => {
+    const handelAddCraftItems = (event) => {
         event.preventDefault()
         const form = event.target;
 
@@ -29,17 +29,27 @@ const AddCraftItems = () => {
 
         // ---------Create Coffee Object-------
 
-        const newCoffee = { name, category, description, price, ratings,customizable,processing,stock, photoURL,email,userName };
-        console.log(newCoffee)
-
+        const newCraftItems = { name, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName };
 
         // ----------Send Data to Server side---------
+
+        fetch('http://localhost:7000/add-craft-items', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newCraftItems)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
 
 
     }
 
     return (
-        <div className='px-5' style={{backgroundImage:`url(${background})`}}>
+        <div className='px-5' style={{ backgroundImage: `url(${background})` }}>
             <div className='container mx-auto mt-10'>
                 {/* --------------Form section-------------- */}
 
@@ -48,7 +58,7 @@ const AddCraftItems = () => {
                         <h2 className='font-rancho text-5xl text-[#FF76CE]'>Add new Craft Item</h2>
 
                     </div>
-                    <form onSubmit={handelAddNewCoffee}>
+                    <form onSubmit={handelAddCraftItems}>
                         <div className='flex flex-col md:flex-row gap-6 mt-8'>
                             <div className='md:w-1/2 space-y-6'>
                                 <div className='flex flex-col gap-2 rounded-lg '>
@@ -78,7 +88,7 @@ const AddCraftItems = () => {
                                 </div>
                                 <div className='flex flex-col gap-2 rounded-lg '>
                                     <h3 className='font-semibold'>Customizable</h3>
-                                    <input name='customizable' className='p-2 rounded-lg' type="number" placeholder='Yes / No' />
+                                    <input name='customizable' className='p-2 rounded-lg' type="text" placeholder='Yes / No' />
                                 </div>
                                 <div className='flex flex-col gap-2 rounded-lg '>
                                     <h3 className='font-semibold'>Processing Time</h3>
@@ -97,8 +107,8 @@ const AddCraftItems = () => {
                             <h3 className='font-semibold'>Item Photo URL</h3>
                             <input name='photoURL' className='p-2 rounded-lg' type="text" placeholder='Enter photo URL' />
                         </div>
-                        <button type='submit'  className='w-full mt-10'>
-                            <Button btnName={"Add Item"} size={"w-full"}/>
+                        <button type='submit' className='w-full mt-10'>
+                            <Button btnName={"Add Item"} size={"w-full"} />
                         </button>
                     </form>
                 </div>

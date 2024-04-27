@@ -86,7 +86,7 @@ const Nav = () => {
                                         <li onClick={logOut}><a>Logout</a></li>
                                     </ul>
                                 </div>
-                                <Tooltip id='my-tooltip'>
+                                <Tooltip className='z-50' id='my-tooltip'>
                                     <div>
                                         <h3>{currentUser.displayName}</h3>
                                         <h3>{currentUser.email}</h3>
