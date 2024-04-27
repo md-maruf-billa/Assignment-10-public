@@ -6,6 +6,8 @@ import Error from '../../Components/Error/Error';
 import Login from '../Login/Login';
 import Registration from '../Registration/Registration';
 import AddCraftItems from '../AddCraftItems/AddCraftItems';
+import CraftDetails from '../CraftDetails/CraftDetails';
+import PrivetRout from '../PrivetRout/PrivetRout';
 
 const Router = createBrowserRouter([
     {
@@ -27,7 +29,11 @@ const Router = createBrowserRouter([
             },
             {
                 path:"add-craft-items",
-                element:<AddCraftItems/>
+                element:<PrivetRout><AddCraftItems/></PrivetRout>
+            },
+            {
+                path:"details/:id",
+                element:<CraftDetails/>
             }
         ]
     }

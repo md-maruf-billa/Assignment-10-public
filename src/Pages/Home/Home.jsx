@@ -14,7 +14,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className='px-4'>
+        <div>
 
             {/* ------------Banner Slide Hare----------- */}
 
@@ -22,7 +22,7 @@ const Home = () => {
 
 
             {/* ------------All art and craft section hare-------------- */}
-            <div className='mt-20 container mx-auto'>
+            <div className='mt-20 container mx-auto px-4'>
                 <h1 className='font-rancho text-6xl text-center text-[#FF76CE]'>Arts adn Crafts</h1>
 
 
