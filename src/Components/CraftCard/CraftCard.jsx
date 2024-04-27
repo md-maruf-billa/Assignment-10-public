@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../Utils/Button';
 
 const CraftCard = ({ data }) => {
-    const { _id ,name, description, price, ratings, customizable, stock, photoURL,} = data;
+    const { _id ,name, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName} = data;
     return (
         <div className='border border-[#FF76CE] hover:border-blue-600 rounded-2xl p-8'>
             <div>
