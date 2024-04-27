@@ -34,7 +34,7 @@ const AddCraftItems = () => {
 
         // ----------Send Data to Server side---------
 
-        fetch('http://localhost:7000/add-craft-items', {
+        fetch('https://assignment-10-server-kappa-ebon.vercel.app/add-craft-items', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
