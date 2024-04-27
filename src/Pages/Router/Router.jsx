@@ -8,6 +8,8 @@ import Registration from '../Registration/Registration';
 import AddCraftItems from '../AddCraftItems/AddCraftItems';
 import CraftDetails from '../CraftDetails/CraftDetails';
 import PrivetRout from '../PrivetRout/PrivetRout';
+import AllArtAndCraft from '../AllArtAndCraft/AllArtAndCraft';
+import MyArtAndCraftList from '../MyArtAndCraftList/MyArtAndcraftList';
 
 const Router = createBrowserRouter([
     {
@@ -34,6 +36,14 @@ const Router = createBrowserRouter([
             {
                 path:"details/:id",
                 element:<CraftDetails/>
+            },
+            {
+                path:"/all-art-craft-items",
+                element:<AllArtAndCraft/>
+            },
+            {
+                path:"/my-art-craft-list",
+                element:<MyArtAndCraftList/>
             }
         ]
     }

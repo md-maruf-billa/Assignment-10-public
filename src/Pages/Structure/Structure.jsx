@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
 import { userContext } from '../../Utils/DataProvider/DataProvider';
+import Footer from '../../Components/Footer/Footer';
 
 const Structure = () => {
     const { loading } = useContext(userContext);
@@ -16,6 +17,7 @@ const Structure = () => {
 
                         <Nav />
                         <Outlet />
+                        <Footer/>
                     </div>
             }
         </>

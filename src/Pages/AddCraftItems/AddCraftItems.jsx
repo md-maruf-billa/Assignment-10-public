@@ -66,7 +66,7 @@ const AddCraftItems = () => {
 
     return (
         <div className='px-5' style={{ backgroundImage: `url(${background})` }}>
-            <div className='container mx-auto mt-10'>
+            <div className='container mx-auto mt-[110px]'>
                 {/* --------------Form section-------------- */}
 
                 <div className='bg-[#0001] border-[#FF76CE] border py-[90px] px-8 lg:px-[112px] mt-4 md:mt-12 rounded-lg' >
