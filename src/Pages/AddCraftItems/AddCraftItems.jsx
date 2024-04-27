@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import background from '../../assets/image/formbg.png'
 import { userContext } from '../../Utils/DataProvider/DataProvider';
+import Swal from 'sweetalert2';
 
 const AddCraftItems = () => {
     //------------get current user form context-----------
@@ -36,13 +37,28 @@ const AddCraftItems = () => {
         fetch('http://localhost:7000/add-craft-items', {
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(newCraftItems)
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                if (result.acknowledged) {
+                    Swal.fire({
+                        title: "Congratulation",
+                        text: "Successfully added this craft item.",
+                        icon: "success"
+                    });
+                    form.reset();
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Craft item added failed.",
+                        footer: ''
+                    });
+                }
             })
 
 
@@ -84,7 +100,7 @@ const AddCraftItems = () => {
                             <div className='md:w-1/2 space-y-6'>
                                 <div className='flex flex-col gap-2 rounded-lg '>
                                     <h3 className='font-semibold'>Ratings</h3>
-                                    <input name='ratings' className='p-2 rounded-lg' type="number" placeholder='Enter item ratings' />
+                                    <input name='ratings' className='p-2 rounded-lg' type="text" placeholder='Enter item ratings' />
                                 </div>
                                 <div className='flex flex-col gap-2 rounded-lg '>
                                     <h3 className='font-semibold'>Customizable</h3>
