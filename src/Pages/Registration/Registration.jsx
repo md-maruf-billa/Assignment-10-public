@@ -11,11 +11,10 @@ import auth from '../../Utils/FireBase/firebase.config';
 
 const Registration = () => {
     const { signUpUser } = useContext(userContext)
-    const navigate = useNavigate();
-    const redirectUser = () => navigate("/user-profile")
     const [passErr, setPassErr] = useState('');
     const [strongPass, setStrongPass] = useState("");
     const [successPass, setSuccessPass] = useState("")
+    const navigate = useNavigate();
     const [eye, setEye] = useState(true)
     const {
         register,
@@ -39,6 +38,7 @@ const Registration = () => {
                             text: "You are successfully registered.",
                             icon: "success"
                         });
+                        navigate("/user-profile")
                     })
 
             })

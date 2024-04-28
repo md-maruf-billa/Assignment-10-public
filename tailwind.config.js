@@ -6,11 +6,15 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
-        poppins:"Poppins",
-        rancho:"Rancho"
+      fontFamily: {
+        poppins: "Poppins",
+        rancho: "Rancho"
       }
     },
   },
+
   plugins: [require('daisyui')],
+  daisyui: {
+    themes: ["synthwave","light","dark"],
+  },
 }

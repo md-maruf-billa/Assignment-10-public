@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import { userContext } from '../../Utils/DataProvider/DataProvider';
@@ -8,7 +8,7 @@ import { Tooltip } from 'react-tooltip';
 import { Typewriter } from 'react-simple-typewriter';
 import { IoMdLogOut } from 'react-icons/io';
 const Nav = () => {
-
+    const [theme , setTheme] = useState(true)
     const navElement = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/all-art-craft-items">All Art & craft Items</NavLink></li>
@@ -40,6 +40,23 @@ const Nav = () => {
                 });
             })
     }
+
+
+    //-------------handel theme chaining----------
+    const handelThem = (e) => {
+        if (e.target.checked) {
+            localStorage.setItem('theme', 'synthwave');
+            
+        }
+        else {
+            localStorage.setItem('theme', 'light')
+        }
+    }
+    useEffect(() => {
+        const th = localStorage.getItem('theme')
+        document.querySelector('html').setAttribute("data-theme", th)
+    }, [handelThem])
+
     return (
         <div className='z-50 bg-[#fe93d9ca] fixed w-full top-0'>
             <div className="navbar container mx-auto">
@@ -77,7 +94,7 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end space-x-2">
                     <div className='hidden md:block'>
-                        <label className="swap swap-rotate">
+                        <label onClick={(e)=>handelThem(e)} className="swap swap-rotate">
 
                             {/* this hidden checkbox controls the state */}
                             <input type="checkbox" className="theme-controller" value="synthwave" />

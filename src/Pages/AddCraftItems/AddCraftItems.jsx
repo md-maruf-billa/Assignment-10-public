@@ -75,51 +75,74 @@ const AddCraftItems = () => {
                     <form onSubmit={handelAddCraftItems}>
                         <div className='flex flex-col md:flex-row gap-6 mt-8'>
                             <div className='md:w-1/2 space-y-6'>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Item Name</h3>
-                                    <input name='name' className='p-2 rounded-lg' type="text" placeholder='Enter your item name' />
+                                    <input name='name' className='p-3 rounded-lg' type="text" placeholder='Enter your item name' />
                                 </div>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Category</h3>
-                                    <input name='category' className='p-2 rounded-lg' type="text" placeholder='Enter item Category' />
+                                    <select name='category' className="select select-bordered w-full ">
+                                        <option disabled selected>Choose Category</option>
+                                        <option>Landscape Painting</option>
+                                        <option>Portrait Drawing</option>
+                                        <option>Watercolour Painting</option>
+                                        <option>Oil Painting</option>
+                                        <option>Charcoal Sketching</option>
+                                        <option>Cartoon Drawing</option>
+                                    </select>
                                 </div>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Description</h3>
-                                    <input name='description' className='p-2 rounded-lg' type="text" placeholder='Enter item description' />
+                                    <input name='description' className='p-3 rounded-lg' type="text" placeholder='Enter item description' />
                                 </div>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Price</h3>
-                                    <input name='price' className='p-2 rounded-lg' type="number" placeholder='Enter item price' />
+                                    <input name='price' className='p-3 rounded-lg' type="number" placeholder='Enter item price' />
                                 </div>
                             </div>
 
 
 
                             <div className='md:w-1/2 space-y-6'>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Ratings</h3>
-                                    <input name='ratings' className='p-2 rounded-lg' type="text" placeholder='Enter item ratings' />
+                                    <input name='ratings' className='p-3 rounded-lg' type="text" placeholder='Enter item ratings' />
                                 </div>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Customizable</h3>
-                                    <input name='customizable' className='p-2 rounded-lg' type="text" placeholder='Yes / No' />
+                                    <select name='customizable' className="select select-bordered w-full ">
+                                        <option disabled selected>Select customization</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
                                 </div>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Processing Time</h3>
-                                    <input name='processing' className='p-2 rounded-lg' type="text" placeholder='Enter item processing time' />
+                                    <select name='processing' className="select select-bordered w-full ">
+                                        <option disabled selected>Select weeks</option>
+                                        <option>0 - 1 Weeks</option>
+                                        <option>1 - 2 Weeks</option>
+                                        <option>2 - 3 Weeks</option>
+                                        <option>3 - 4 Weeks</option>
+                                        <option>4 - 5 Weeks</option>
+                                    </select>
                                 </div>
-                                <div className='flex flex-col gap-2 rounded-lg '>
+                                <div className='flex flex-col gap-3 rounded-lg '>
                                     <h3 className='font-semibold'>Stock</h3>
-                                    <input name='stock' className='p-2 rounded-lg' type="text" placeholder='In Stock / Out of Stock' />
+                                    <select name='stock' className="select select-bordered w-full ">
+                                        <option disabled selected>Select Stock</option>
+                                        <option>In Stock</option>
+                                        <option>Out of Stock</option>
+                                    </select>
                                 </div>
 
                             </div>
                         </div>
 
 
-                        <div className='flex flex-col gap-2 rounded-lg mt-6'>
+                        <div className='flex flex-col gap-3 rounded-lg mt-6'>
                             <h3 className='font-semibold'>Item Photo URL</h3>
-                            <input name='photoURL' className='p-2 rounded-lg' type="text" placeholder='Enter photo URL' />
+                            <input name='photoURL' className='p-3 rounded-lg' type="text" placeholder='Enter photo URL' />
                         </div>
                         <button type='submit' className='w-full mt-10'>
                             <Button btnName={"Add Item"} size={"w-full"} />
