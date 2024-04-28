@@ -14,8 +14,8 @@ const AllArtAndCraft = () => {
             })
     }, [])
     return (
-        <div className='mt-[80px] min-h-[calc(100vh-320px)] container mx-auto' style={{ backgroundImage: `url(${bg})` }}>
-            <div className="overflow-x-auto">
+        <div className='mt-[80px] min-h-[calc(100vh-320px)] bg-no-repeat bg-cover' style={{ backgroundImage: `url(${bg})` }}>
+            <div className="overflow-x-auto container mx-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -48,6 +48,8 @@ const AllArtAndCraft = () => {
                                     {data.description}
                                     <br />
                                     <span className="badge badge-ghost badge-sm">{data.category}</span>
+                                    
+                                    <span className="badge badge-ghost badge-sm">{data.stock}</span>
                                 </td>
                                 <td>{data.price} $</td>
                                 <th>

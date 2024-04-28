@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, useParams } from 'react-router-dom';
 import Structure from '../Structure/Structure';
 import Home from '../Home/Home';
 import Error from '../../Components/Error/Error';
@@ -10,6 +10,7 @@ import CraftDetails from '../CraftDetails/CraftDetails';
 import PrivetRout from '../PrivetRout/PrivetRout';
 import AllArtAndCraft from '../AllArtAndCraft/AllArtAndCraft';
 import MyCraftList from '../MyArtAndCraftList/MyCraftList';
+import EditCraft from '../EditCraft/EditCraft';
 
 const Router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const Router = createBrowserRouter([
             {
                 path:"/my-art-craft-list",
                 element:<PrivetRout><MyCraftList/></PrivetRout>
+            },
+            {
+                path:"/edit-craft",
+                element:<PrivetRout><EditCraft/></PrivetRout>
             }
         ]
     }

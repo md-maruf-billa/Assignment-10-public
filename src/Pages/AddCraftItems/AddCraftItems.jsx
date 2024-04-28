@@ -1,6 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import { FaArrowLeft } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import background from '../../assets/image/formbg.png'
 import { userContext } from '../../Utils/DataProvider/DataProvider';

@@ -124,8 +124,8 @@ const Nav = () => {
                             </div>
                             :
                             <div className='space-x-2'>
-                                <Link to={"/login"} ><Button btnName={"Login"} /></Link>
-                                <Link to={"/registration"} ><Button btnName={"Register"} /></Link>
+                                <Link to={"/login"} ><Button btnName={"Login"} size={"text-xs md:text-base"}/></Link>
+                                <Link to={"/registration"} ><Button btnName={"Register"} size={"text-xs md:text-base"}/></Link>
                             </div>
                     }
 
