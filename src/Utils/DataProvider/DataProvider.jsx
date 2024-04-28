@@ -36,6 +36,10 @@ const DataProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth)
     }
+    // //-----------Update user Profile--------
+    // const updateProfile = () =>{
+    //     return 
+    // }
 
     // -------------observe user---------------
 
@@ -58,7 +62,8 @@ const DataProvider = ({ children }) => {
         logOutUser,
         loginUser,
         googleLogin,
-        loading
+        loading,
+        setLoading
     }
     return (
         <userContext.Provider value={value}>

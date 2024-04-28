@@ -11,6 +11,7 @@ import PrivetRout from '../PrivetRout/PrivetRout';
 import AllArtAndCraft from '../AllArtAndCraft/AllArtAndCraft';
 import MyCraftList from '../MyArtAndCraftList/MyCraftList';
 import EditCraft from '../EditCraft/EditCraft';
+import UserProfile from '../UserProfile/UserProfile';
 
 const Router = createBrowserRouter([
     {
@@ -49,6 +50,11 @@ const Router = createBrowserRouter([
             {
                 path:"/edit-craft",
                 element:<PrivetRout><EditCraft/></PrivetRout>
+            }
+            ,
+            {
+                path:"/user-profile",
+                element:<PrivetRout><UserProfile/></PrivetRout>
             }
         ]
     }

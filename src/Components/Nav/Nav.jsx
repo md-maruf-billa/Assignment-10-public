@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import { userContext } from '../../Utils/DataProvider/DataProvider';
-import { FaUser } from 'react-icons/fa6';
+import { FaPen, FaUser } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
 import { Typewriter } from 'react-simple-typewriter';
+import { IoMdLogOut } from 'react-icons/io';
 const Nav = () => {
 
     const navElement = <>
@@ -105,13 +106,16 @@ const Nav = () => {
                                     </div>
                                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                         <li>
-                                            <a className="justify-between">
-                                                Profile
+                                            <Link to={"/user-profile"} className="justify-between">
+                                                <span className='flex items-center gap-2'>
+                                                    <FaPen/>
+                                                    Profile
+                                                </span>
                                                 <span className="badge">New</span>
-                                            </a>
+                                            </Link>
                                         </li>
-                                        <li><a>Settings</a></li>
-                                        <li onClick={logOut}><a>Logout</a></li>
+                                        
+                                        <li onClick={logOut}><span><IoMdLogOut /> Logout</span></li>
                                     </ul>
                                 </div>
                                 <Tooltip className='z-50' id='my-tooltip'>
