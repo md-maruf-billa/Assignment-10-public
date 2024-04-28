@@ -6,7 +6,7 @@ const Home = () => {
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-10-server-kappa-ebon.vercel.app/')
+        fetch('http://localhost:7000/')
             .then(res => res.json())
             .then(data => {
                 setAllData(data);

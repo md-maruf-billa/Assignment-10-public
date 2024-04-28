@@ -7,7 +7,7 @@ const AllArtAndCraft = () => {
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-10-server-kappa-ebon.vercel.app/')
+        fetch('http://localhost:7000/')
             .then(res => res.json())
             .then(data => {
                 setAllData(data);
@@ -52,7 +52,7 @@ const AllArtAndCraft = () => {
                                 <td>{data.price} $</td>
                                 <th>
                                     <Link state={data._id} to={`/details/${data._id}`}>
-                                        <Button btnName={"Details"}/>
+                                        <Button btnName={"Details"} />
                                     </Link>
                                 </th>
                             </tr>)
