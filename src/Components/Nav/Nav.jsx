@@ -20,7 +20,6 @@ const Nav = () => {
     // -----------get user from context-----------
     const { currentUser, logOutUser } = useContext(userContext);
 
-    console.log(currentUser)
     // -----------Handel logOut user--------
     const logOut = () => {
         logOutUser()
