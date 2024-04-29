@@ -13,7 +13,7 @@ const MyCraftList = () => {
     const [allItems, setAllItems] = useState([]);
     const { currentUser } = useContext(userContext);
     useEffect(() => {
-        fetch(`http://localhost:7000/my-art-and-craftList/${currentUser.email}`)
+        fetch(`https://canvas-creations-server.vercel.app/my-art-and-craftList/${currentUser.email}`)
             .then(res => res.json())
             .then(data => {
                 setAllItems(data);
@@ -38,7 +38,7 @@ const MyCraftList = () => {
                     icon: "success"
                 });
             }
-            fetch(`http://localhost:7000/${id}`, {
+            fetch(`https://canvas-creations-server.vercel.app/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -53,7 +53,7 @@ const MyCraftList = () => {
     }
 
     return (
-        <div className='min-h-[calc(100vh-350px)]' style={{backgroundImage:`url(${bg})`}}>
+        <div className='min-h-[calc(100vh-350px)]' style={{ backgroundImage: `url(${bg})` }}>
             <div className='bg-[linear-gradient(45deg,rgba(0,0,0,.1),rgba(0,0,0,0.7)),url(https://i.postimg.cc/rsPj48PM/bg.jpg)] min-h-[60vh] bg-no-repeat  bg-center object-cover bg-cover flex justify-center items-center'>
                 <div className="text-6xl md:text-8xl lg:text-9xl text-[#ff98d9] font-rancho">
                     <Typewriter

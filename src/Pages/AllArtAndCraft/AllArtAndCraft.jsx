@@ -12,7 +12,7 @@ const AllArtAndCraft = () => {
     const [allData, setAllData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:7000/')
+        fetch('https://canvas-creations-server.vercel.app/')
             .then(res => res.json())
             .then(data => {
                 setAllData(data);
@@ -38,9 +38,9 @@ const AllArtAndCraft = () => {
     }
 
     // -------------set Display data ----------
-    useEffect(()=>{
+    useEffect(() => {
         setDisplayData(allData);
-    },[allData])
+    }, [allData])
     useEffect(() => {
         setDisplayData(filteredData);
     }, [filteredData])

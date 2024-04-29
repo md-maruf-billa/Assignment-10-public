@@ -8,7 +8,7 @@ const EditCraft = () => {
 
     const [craftItem, setCraftItem] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:7000/details/${location.state}`)
+        fetch(`https://canvas-creations-server.vercel.app/details/${location.state}`)
             .then(res => res.json())
             .then(data => {
                 setCraftItem(data);
@@ -34,35 +34,35 @@ const EditCraft = () => {
         const processing = form.processing.value;
         const stock = form.stock.value;
         const photoURL = form.photoURL.value;
-        
-        const updateObj = {_id,name,category,description,price,ratings,customizable,processing,stock,photoURL};
-        
-        fetch("http://localhost:7000",{
-            method:"PUT",
-            headers:{
-                "content-type":"application/json"
+
+        const updateObj = { _id, name, category, description, price, ratings, customizable, processing, stock, photoURL };
+
+        fetch("http://localhost:7000", {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
             },
-            body:JSON.stringify(updateObj)
+            body: JSON.stringify(updateObj)
         })
-        .then(res => res.json())
-        .then(result => {
-            if(result.modifiedCount > 0){
-                Swal.fire({
-                    title: "Congratulation",
-                    text: "Successfully Updated this craft item.",
-                    icon: "success"
-                });
-                form.reset();
-            }
-            else{
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Craft item Update failed.",
-                    footer: ''
-                });
-            }
-        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Congratulation",
+                        text: "Successfully Updated this craft item.",
+                        icon: "success"
+                    });
+                    form.reset();
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Craft item Update failed.",
+                        footer: ''
+                    });
+                }
+            })
 
     }
 

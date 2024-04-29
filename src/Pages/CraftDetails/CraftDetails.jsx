@@ -14,14 +14,14 @@ const CraftDetails = () => {
     // ----------get Specific data form data base-------
 
     useEffect(() => {
-        fetch(`http://localhost:7000/details/${location.state}`)
-        // fetch(`https://canvas-creations-server.vercel.app/details/${location.state}`)
+        fetch(`https://canvas-creations-server.vercel.app/details/${location.state}`)
+            // fetch(`https://canvas-creations-server.vercel.app/details/${location.state}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
             })
     }, [])
-    const { name, time,category, description, price, ratings, customizable, processing, stock, photoURL, email, userName } = data;
+    const { name, time, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName } = data;
     return (
         <div className=' flex flex-col justify-center items-center' style={{ backgroundImage: `url(${bg})` }}>
             <div className='h-[400px] md:h-[600px] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://www.parksidecabinrentals.com/wp-content/uploads/2013/02/Arts_and_Crafts.jpg)] w-full bg-cover px-4 flex justify-center items-center flex-col'>

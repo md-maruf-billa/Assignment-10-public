@@ -29,11 +29,11 @@ const AddCraftItems = () => {
 
         // ---------Create Coffee Object-------
 
-        const newCraftItems = { name,time, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName };
+        const newCraftItems = { name, time, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName };
 
         // ----------Send Data to Server side---------
 
-        fetch('http://localhost:7000/add-craft-items', {
+        fetch('https://canvas-creations-server.vercel.app/add-craft-items', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
