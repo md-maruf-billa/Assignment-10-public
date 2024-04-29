@@ -15,7 +15,7 @@ import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <div className=''>
+        <div data-aos="zoom-in-up" data-aos-duration="1000">
             <Swiper
                 centeredSlides={true}
                 autoplay={{
@@ -29,7 +29,7 @@ const Banner = () => {
                     clickable: true,
                 }}
                 modules={[Autoplay, EffectFade, Navigation, Pagination]}
-                className="mySwiper h-[90vh] w-full"
+                className="mySwiper h-[70vh] md:h-screen w-full"
             >
                 <SwiperSlide className='bg-[linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.7)),url(https://i.postimg.cc/L61c7q2H/banner-1.jpg)] bg-no-repeat bg-cover bg-center object-contain'>
                     <div className='flex justify-center items-center h-full text-center'>

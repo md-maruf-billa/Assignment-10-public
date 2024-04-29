@@ -54,7 +54,9 @@ const MyCraftList = () => {
 
     return (
         <div className='min-h-[calc(100vh-350px)]' style={{ backgroundImage: `url(${bg})` }}>
-            <div className='bg-[linear-gradient(45deg,rgba(0,0,0,.1),rgba(0,0,0,0.7)),url(https://i.postimg.cc/rsPj48PM/bg.jpg)] min-h-[60vh] bg-no-repeat  bg-center object-cover bg-cover flex justify-center items-center'>
+            <div 
+            data-aos="zoom-in-up" data-aos-duration="1500"
+            className='bg-[linear-gradient(45deg,rgba(0,0,0,.1),rgba(0,0,0,0.7)),url(https://i.postimg.cc/rsPj48PM/bg.jpg)] min-h-[60vh] bg-no-repeat  bg-center object-cover bg-cover flex justify-center items-center'>
                 <div className="text-6xl md:text-8xl lg:text-9xl text-[#ff98d9] font-rancho">
                     <Typewriter
 
@@ -77,7 +79,10 @@ const MyCraftList = () => {
                         </div> :
                         <div className='grid lg:grid-cols-2 gap-10 px-4'>
                             {
-                                allItems.map(data => <div key={data._id} className='border-[#FF76CE] border flex items-center justify-between p-3 md:px-12 md:py-8 rounded-md z-0'>
+                                allItems.map(data => 
+                                <div
+                                data-aos="zoom-in-up" data-aos-duration="1000"
+                                 key={data._id} className='border-[#FF76CE] border flex items-center justify-between p-3 md:px-12 md:py-8 rounded-md z-0'>
                                     <div>
                                         <img className='md:h-[200px] w-[130px] md:w-[190px] rounded-lg' src={data.photoURL} alt="" />
                                     </div>

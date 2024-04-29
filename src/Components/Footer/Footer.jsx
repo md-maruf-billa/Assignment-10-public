@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='bg-[#FF76CE] mt-10'>
-            <footer className="footer p-10 container mx-auto text-base-content">
+            <footer className="footer p-10 container mx-auto text-white">
                 <aside>
                     <img className='size-[100px]' src="/fav.png" alt="" />
                     <p><span className='text-4xl font-rancho'>Canvas Creations</span>

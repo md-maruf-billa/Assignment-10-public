@@ -68,7 +68,9 @@ const AddCraftItems = () => {
             <div className='container mx-auto mt-[110px]'>
                 {/* --------------Form section-------------- */}
 
-                <div className='bg-[#0001] border-[#FF76CE] border py-[90px] px-8 lg:px-[112px] mt-4 md:mt-12 rounded-lg' >
+                <div 
+                data-aos="zoom-in-up" data-aos-duration="1500"
+                className='bg-[#0001] border-[#FF76CE] border py-[90px] px-8 lg:px-[112px] mt-4 md:mt-12 rounded-lg' >
                     <div className='flex flex-col justify-center items-center gap-8'>
                         <h2 className='font-rancho text-5xl text-[#FF76CE]'>Add new Craft Item</h2>
 

@@ -26,7 +26,7 @@ const Home = () => {
 
             {/* ------------All art and craft section hare-------------- */}
             <div className='mt-20 container mx-auto px-4'>
-                <h1 className='font-rancho text-6xl text-center text-[#FF76CE]'>Arts adn Crafts</h1>
+                <h1 data-aos="zoom-in-up" data-aos-duration="1000" className='font-rancho text-6xl text-center text-[#FF76CE]'>Arts adn Crafts</h1>
 
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10'>
@@ -46,18 +46,18 @@ const Home = () => {
 
             {/* ----------------Exhibitions & Events------------ */}
 
-            <div className='mt-24'>
+            <div className='mt-24 px-4'>
                 <div className='container mx-auto'>
                     <h1 className='font-rancho text-6xl text-[#FF76CE] text-center'>Exhibitions & Events</h1>
 
-                    <div className='flex items-center mt-2'>
-                        <div className='w-1/2 relative'>
+                    <div className='flex flex-col lg:flex-row items-center mt-10 lg:mt-2'>
+                        <div className='lg:w-1/2 relative' data-aos="zoom-in-up" data-aos-duration="1500">
                             <img className='rounded-md' src="https://www.culturalartscenteronline.org/wp-content/uploads/2019/08/Gallery-Image-3-Op.-Mon.jpg" alt="" />
                             <div className='absolute bg-[#FF76CE] text-white w-[200px] h-[50px] flex justify-center items-center  -bottom-5 -right-5'>
                                 <p className='font-rancho italic text-xl'>You Are Invited.</p>
                             </div>
                         </div>
-                        <div className='w-1/2 p-10 rounded-md space-y-3'>
+                        <div className='lg:w-1/2 p-10 rounded-md space-y-3' data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className='space-y-2'>
                                 <h3 className='font-rancho text-3xl text-[#FF76CE]'>Canvas Creations</h3>
                                 <p className='flex items-center gap-3 text-[#dd8867]'>
@@ -90,6 +90,21 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+
+
+            {/* -----------------Testimonial section-------------- */}
+            <div className='mt-24 px-4'>
+                <h2 className='text-6xl font-rancho text-center text-[#FF76CE]'>Art Gallery</h2>
+                <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20'>
+                    {
+                        allData.map(data => <div data-aos="zoom-in-up" data-aos-duration="1000" key={data._id}>
+                            <img className='w-full h-[300px] lg:h-[400px] object-cover rounded-2xl' src={data.photoURL} alt="" />
+                        </div>)
+                    }
+
                 </div>
             </div>
         </div>

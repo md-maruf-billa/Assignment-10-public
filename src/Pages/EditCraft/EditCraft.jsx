@@ -37,7 +37,7 @@ const EditCraft = () => {
 
         const updateObj = { _id, name, category, description, price, ratings, customizable, processing, stock, photoURL };
 
-        fetch("http://localhost:7000", {
+        fetch("https://canvas-creations-server.vercel.app/", {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

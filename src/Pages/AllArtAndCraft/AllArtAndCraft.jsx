@@ -47,7 +47,9 @@ const AllArtAndCraft = () => {
 
     return (
         <div className='min-h-[calc(100vh-320px)] bg-no-repeat bg-cover' >
-            <div className='min-h-[50vh] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://th.bing.com/th/id/R.e34aaca44ca8d569f778209bd74f3626?rik=VAXeY7z%2fHJ30tQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6HyzwVS.jpg&ehk=ecdLGSXUlco6Xzkx4M8i3NfxKOk4PqvNNCAKhb389D0%3d&risl=&pid=ImgRaw&r=0)] bg-center flex justify-center items-center'>
+            <div 
+            data-aos="zoom-in-up" data-aos-duration="1500"
+            className='min-h-[70vh] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://th.bing.com/th/id/R.e34aaca44ca8d569f778209bd74f3626?rik=VAXeY7z%2fHJ30tQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6HyzwVS.jpg&ehk=ecdLGSXUlco6Xzkx4M8i3NfxKOk4PqvNNCAKhb389D0%3d&risl=&pid=ImgRaw&r=0)] bg-center flex justify-center items-center'>
                 <div className="text-6xl md:text-8xl lg:text-9xl text-[#ff98d9] font-rancho">
                     <Typewriter
 
@@ -63,7 +65,9 @@ const AllArtAndCraft = () => {
                 </div>
             </div>
             <div style={{ backgroundImage: `url(${bg})` }}>
-                <div className='container mx-auto flex justify-end mt-10'>
+                <div 
+                data-aos="zoom-in-up" data-aos-duration="1000"
+                className='container mx-auto flex justify-end mt-10'>
                     <div className='space-y-2'>
                         <h3>Filter By Customization</h3>
                         <select onClick={handelFilter} className="select select-bordered w-full max-w-xs">
@@ -82,11 +86,11 @@ const AllArtAndCraft = () => {
                             </div> :
                             <table className="table">
                                 {/* head */}
-                                <thead>
+                                <thead data-aos="fade-up" data-aos-duration="1000">
                                     <tr>
 
                                         <th>Art & Craft Name</th>
-                                        <th>Description / Price</th>
+                                        <th className='hidden md:block'>Description / Price</th>
                                         <th>Price</th>
                                         <th></th>
                                     </tr>
@@ -97,7 +101,8 @@ const AllArtAndCraft = () => {
 
                                     {
 
-                                        displayData.map(data => <tr key={data._id}>
+                                        displayData.map(data => 
+                                        <tr key={data._id} data-aos='zoom-in' data-aos-duration="1000">
                                             <td>
                                                 <div className="flex items-center gap-3">
                                                     <div className="avatar">
@@ -111,7 +116,7 @@ const AllArtAndCraft = () => {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td className='hidden md:block'>
                                                 {data.description}
                                                 <br />
                                                 <span className="badge badge-ghost badge-sm">{data.category}</span>
@@ -123,7 +128,7 @@ const AllArtAndCraft = () => {
                                             <td>{data.price} $</td>
                                             <th>
                                                 <Link state={data._id} to={`/details/${data._id}`}>
-                                                    <Button btnName={"Details"} />
+                                                    <Button btnName={"Details"} size={"btn-sm text-xs"} />
                                                 </Link>
                                             </th>
                                         </tr>)

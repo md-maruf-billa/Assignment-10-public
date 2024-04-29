@@ -7,7 +7,9 @@ import Button from '../../Utils/Button';
 const CraftCard = ({ data }) => {
     const { _id ,name, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName} = data;
     return (
-        <div className='border border-[#FF76CE] bg-base-200 hover:border-blue-600 rounded-2xl p-8'>
+        <div 
+        data-aos="zoom-in-up" data-aos-duration="1500"
+        className='border border-[#FF76CE] bg-base-200 hover:border-blue-600 rounded-2xl p-8'>
             <div>
                 <img className='h-[300px] w-full rounded-md' src={photoURL} alt="" />
             </div>
