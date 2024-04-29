@@ -9,6 +9,7 @@ const AddCraftItems = () => {
     const { currentUser } = useContext(userContext);
     const email = currentUser.email;
     const userName = currentUser.displayName;
+    const time = currentUser.metadata.creationTime.slice(0, 17);
 
 
     const handelAddCraftItems = (event) => {
@@ -28,7 +29,7 @@ const AddCraftItems = () => {
 
         // ---------Create Coffee Object-------
 
-        const newCraftItems = { name, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName };
+        const newCraftItems = { name,time, category, description, price, ratings, customizable, processing, stock, photoURL, email, userName };
 
         // ----------Send Data to Server side---------
 

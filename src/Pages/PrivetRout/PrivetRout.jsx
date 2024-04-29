@@ -8,7 +8,8 @@ const PrivetRout = ({children}) => {
         <>
 
             {
-                currentUser.email? children:
+                currentUser.metadata
+                ? children:
                 <Login/>
             }
         </>

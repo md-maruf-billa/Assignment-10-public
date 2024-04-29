@@ -37,7 +37,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:"details/:id",
-                element:<CraftDetails/>
+                element:<PrivetRout><CraftDetails/></PrivetRout>
             },
             {
                 path:"/all-art-craft-items",

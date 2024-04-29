@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 const Login = () => {
 
     //---------Get Data form context--------------
-    const { loginUser, googleLogin } = useContext(userContext);
+    const { loginUser, googleLogin, gitHubLogin ,faceBookLogin} = useContext(userContext);
 
     const [eye, setEye] = useState(true);
     const location = useLocation();
@@ -65,8 +65,48 @@ const Login = () => {
                     });
                 })
         }
-    }
+        else if (socialAccount === "github") {
+            gitHubLogin()
 
+                .then(res => {
+                    Swal.fire({
+                        title: "Congratulation",
+                        text: "You are successfully Logged In.",
+                        icon: "success"
+                    });
+                })
+                .catch(err => {
+                    console.log(err)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: `${err.message.split("/")[1].replace(")", "")}`,
+                        footer: ''
+                    });
+                })
+        }
+        else if (socialAccount === "faceBook") {
+            faceBookLogin()
+
+                .then(res => {
+                    Swal.fire({
+                        title: "Congratulation",
+                        text: "You are successfully Logged In.",
+                        icon: "success"
+                    });
+                })
+                .catch(err => {
+                    console.log(err)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: `${err.message.split("/")[1].replace(")", "")}`,
+                        footer: ''
+                    });
+                })
+        }
+
+    }
     return (
         <div
             data-aos="zoom-in-up"
@@ -111,7 +151,7 @@ const Login = () => {
                 <div className='flex gap-5 justify-center items-center mt-5'>
                     <FcGoogle onClick={() => handelSocialLogin('google')} className='text-4xl cursor-pointer'></FcGoogle>
                     <FaFacebook onClick={() => handelSocialLogin('faceBook')} className='text-4xl cursor-pointer text-blue-600'></FaFacebook>
-                    <FaGithub onClick={() => handelSocialLogin('gitHub')} className='text-4xl cursor-pointer'></FaGithub>
+                    <FaGithub onClick={() => handelSocialLogin('github')} className='text-4xl cursor-pointer'></FaGithub>
                     <FaTwitter onClick={() => handelSocialLogin('twitter')} className='text-4xl cursor-pointer text-blue-400'></FaTwitter>
                 </div>
             </form>

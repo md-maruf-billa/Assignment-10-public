@@ -20,7 +20,7 @@ const Nav = () => {
     // -----------get user from context-----------
     const { currentUser, logOutUser } = useContext(userContext);
 
-
+    console.log(currentUser)
     // -----------Handel logOut user--------
     const logOut = () => {
         logOutUser()
@@ -108,7 +108,8 @@ const Nav = () => {
                         </label>
                     </div>
                     {
-                        currentUser.email ?
+                        currentUser.metadata
+                        ?
                             <div>
                                 <div className="dropdown dropdown-end z-50">
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -137,8 +138,8 @@ const Nav = () => {
                                 </div>
                                 <Tooltip className='z-50' id='my-tooltip'>
                                     <div>
-                                        <h3>{currentUser.displayName}</h3>
-                                        <h3>{currentUser.email}</h3>
+                                        <h3>{currentUser.displayName || 'User Name Not found'}</h3>
+                                        <h3>{currentUser.email || "Email not found"}</h3>
 
                                     </div>
                                 </Tooltip>

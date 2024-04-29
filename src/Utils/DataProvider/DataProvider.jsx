@@ -1,4 +1,13 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import {
+    FacebookAuthProvider,
+    GithubAuthProvider,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut
+} from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../FireBase/firebase.config';
 
@@ -7,6 +16,8 @@ export const userContext = createContext(null);
 
 // ------------Social account provider-------
 const googleProvider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const DataProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState([]);
@@ -29,6 +40,18 @@ const DataProvider = ({ children }) => {
     const googleLogin = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider)
+    }
+
+    //----------Login with GitHub----------
+
+    const gitHubLogin = () => {
+        setLoading(true);
+        return signInWithPopup(auth, gitHubProvider)
+    }
+    // ------------------Facebook login--------
+    const faceBookLogin =()=>{
+        setLoading(true);
+        return signInWithPopup(auth,facebookProvider);
     }
     //-------------sign Out user------------
 
@@ -63,7 +86,9 @@ const DataProvider = ({ children }) => {
         loginUser,
         googleLogin,
         loading,
-        setLoading
+        setLoading,
+        gitHubLogin,
+        faceBookLogin
     }
     return (
         <userContext.Provider value={value}>

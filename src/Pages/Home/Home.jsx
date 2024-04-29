@@ -8,6 +8,7 @@ const Home = () => {
 
     useEffect(() => {
         fetch('http://localhost:7000/')
+        // fetch('https://canvas-creations-server.vercel.app/')
             .then(res => res.json())
             .then(data => {
                 setAllData(data);
