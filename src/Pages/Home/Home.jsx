@@ -57,7 +57,7 @@ const Home = () => {
                                 <p className='font-rancho italic text-xl'>You Are Invited.</p>
                             </div>
                         </div>
-                        <div className='lg:w-1/2 p-10 rounded-md space-y-3' data-aos="zoom-in-down" data-aos-duration="1500">
+                        <div className='lg:w-1/2 p-10 rounded-md space-y-3 bg-base-100' data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className='space-y-2'>
                                 <h3 className='font-rancho text-3xl text-[#FF76CE]'>Canvas Creations</h3>
                                 <p className='flex items-center gap-3 text-[#dd8867]'>

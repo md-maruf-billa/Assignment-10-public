@@ -12,6 +12,8 @@ import AllArtAndCraft from '../AllArtAndCraft/AllArtAndCraft';
 import MyCraftList from '../MyArtAndCraftList/MyCraftList';
 import EditCraft from '../EditCraft/EditCraft';
 import UserProfile from '../UserProfile/UserProfile';
+import AllCategories from '../AllCategories/AllCategories';
+import Categories from '../Categories/Categories';
 
 const Router = createBrowserRouter([
     {
@@ -55,6 +57,14 @@ const Router = createBrowserRouter([
             {
                 path:"/user-profile",
                 element:<PrivetRout><UserProfile/></PrivetRout>
+            },
+            {
+                path:"/all-categories",
+                element:<AllCategories/>
+            },
+            {
+                path:"/categories",
+                element:<Categories/>
             }
         ]
     }
