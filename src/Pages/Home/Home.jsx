@@ -148,7 +148,7 @@ const Home = () => {
                         <div
                             data-aos="fade-up" data-aos-duration="1500"
 
-                            className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20'>
+                            className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20'>
                             {
                                 allData.map(data => <div data-aos="zoom-in-up" data-aos-duration="1000" key={data._id}>
                                     <img className='w-full h-[300px] lg:h-[400px] object-cover rounded-2xl' src={data.photoURL} alt="" />
