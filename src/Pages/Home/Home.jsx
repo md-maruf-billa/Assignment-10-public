@@ -40,9 +40,9 @@ const Home = () => {
                         {/* ------------All art and craft section hare-------------- */}
                         <div className='mt-20 container mx-auto px-4'>
                             <div className='flex justify-center items-center flex-col gap-4'>
-                                <h1 data-aos="fade-left" data-aos-duration="1500" className='font-rancho text-6xl text-center text-[#FF76CE]'>Arts adn Crafts</h1>
+                                <h1 data-aos="zoom-in-up" data-aos-duration="1500" className='font-rancho text-6xl text-center text-[#FF76CE]'>Arts adn Crafts</h1>
                                 <p
-                                    data-aos="fade-right" data-aos-duration="1500"
+                                    data-aos="zoom-in-down" data-aos-duration="1500"
                                     className='md:w-[700px] text-center'>
                                     "Unleash your creativity with our Arts and Crafts collection! From painting and sculpting to crafting and beyond, discover endless possibilities to express yourself and bring your imagination to life."
                                 </p>
@@ -80,9 +80,9 @@ const Home = () => {
                         <div className='mt-24 px-4'>
                             <div className='container mx-auto'>
                                 <div className='flex justify-center items-center flex-col gap-4'>
-                                    <h1 data-aos="fade-left" data-aos-duration="1500" className='font-rancho text-6xl text-center text-[#FF76CE]'>Exhibitions & Events</h1>
+                                    <h1 data-aos="zoom-in-up" data-aos-duration="1500" className='font-rancho text-6xl text-center text-[#FF76CE]'>Exhibitions & Events</h1>
                                     <p
-                                        data-aos="fade-right" data-aos-duration="1500"
+                                        data-aos="zoom-in-down" data-aos-duration="1500"
                                         className='md:w-[700px] text-center'>
                                         "Experience the extraordinary with our Exhibitions & Events! Explore captivating displays, immerse yourself in cultural wonders, and engage with thought-provoking experiences that inspire, educate, and entertain."
                                     </p>
@@ -152,10 +152,10 @@ const Home = () => {
                                     <div
                                         data-aos="fade-up" data-aos-duration="1500"
 
-                                        className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20'>
+                                        className='container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-20'>
                                         {
                                             allData.map(data => <div data-aos="zoom-in-up" data-aos-duration="1000" key={data._id}>
-                                                <img className='w-full h-[300px] lg:h-[400px] object-cover rounded-2xl' src={data.photoURL} alt="" />
+                                                <img className='w-full h-[100px] md:h-[180px] lg:h-[300px] object-cover rounded-2xl' src={data.photoURL} alt="" />
                                             </div>)
                                         }
 

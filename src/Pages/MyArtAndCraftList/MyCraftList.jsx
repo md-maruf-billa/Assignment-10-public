@@ -34,21 +34,22 @@ const MyCraftList = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
+                fetch(`https://canvas-creations-server.vercel.app/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        console.log(result);
+                        const remainingItem = allItems.filter(item => item._id != id);
+                        setAllItems(remainingItem);
+                    })
                 Swal.fire({
                     title: "Deleted!",
                     text: "Your file has been deleted.",
                     icon: "success"
                 });
             }
-            fetch(`https://canvas-creations-server.vercel.app/${id}`, {
-                method: "DELETE"
-            })
-                .then(res => res.json())
-                .then(result => {
-                    console.log(result);
-                    const remainingItem = allItems.filter(item => item._id != id);
-                    setAllItems(remainingItem);
-                })
+
         });
 
 
