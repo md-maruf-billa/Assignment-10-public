@@ -7,12 +7,13 @@ import { useForm } from 'react-hook-form';
 import formbg from '../../assets/image/formbg.png'
 import { userContext } from '../../Utils/DataProvider/DataProvider';
 import Swal from 'sweetalert2';
+import PageTitle from '../../Utils/PageTitle';
 
 
 const Login = () => {
 
     //---------Get Data form context--------------
-    const { loginUser, googleLogin, gitHubLogin ,faceBookLogin} = useContext(userContext);
+    const { loginUser, googleLogin, gitHubLogin, faceBookLogin } = useContext(userContext);
 
     const [eye, setEye] = useState(true);
     const location = useLocation();
@@ -29,7 +30,7 @@ const Login = () => {
                     text: "You are successfully Logged In.",
                     icon: "success"
                 });
-                navigate(location.state ? location.state : "/") 
+                navigate(location.state ? location.state : "/")
             })
             .catch(err => {
                 Swal.fire({
@@ -111,7 +112,8 @@ const Login = () => {
             data-aos="zoom-in-up"
             data-aos-duration="1500"
             className='min-h-[calc(100vh-345px)] mt-[68px] mb-5 flex justify-center items-center container mx-auto text-black px-2 md:px-0'>
-
+            {/* ------------------Page title---------- */}
+            <PageTitle title={"Login"} />
             <form onSubmit={handleSubmit(handelLogin)} className='px-10 md:px-14 py-10 rounded-lg border-2 border-[#FF76CE]' style={{ backgroundImage: `url(${formbg})` }}>
                 <h3 className='text-center text-5xl mb-10 text-[#FF76CE] font-rancho'>Login Now</h3>
 

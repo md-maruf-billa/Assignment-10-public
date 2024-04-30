@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import { Typewriter } from 'react-simple-typewriter';
+import PageTitle from '../../Utils/PageTitle';
 
 
 const CraftDetails = () => {
@@ -22,6 +23,8 @@ const CraftDetails = () => {
     const { name, time, category, description, price, ratings, customizable, processing, stock, photoURL, userName } = data;
     return (
         <div className=' flex flex-col justify-center items-center'>
+              {/* ------------------Page title---------- */}
+              <PageTitle title={"Craft Details"}/>
             <div className='h-[400px] md:h-[600px] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://www.parksidecabinrentals.com/wp-content/uploads/2013/02/Arts_and_Crafts.jpg)] w-full bg-cover px-4 flex justify-center items-center flex-col'>
                 <div className="text-6xl md:text-8xl lg:text-9xl text-[#ff98d9] font-rancho">
                     <Typewriter

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
 import Button from '../../Utils/Button';
 import bg from '../../assets/image/formbg.png'
+import PageTitle from '../../Utils/PageTitle';
 const AllCategories = () => {
     const [allCategories, setAllCategories] = useState([]);
 
@@ -16,6 +17,8 @@ const AllCategories = () => {
 
     return (
         <div style={{backgroundImage:`url(${bg})`}} className='min-h-screen bg-no-repeat bg-cover'>
+              {/* ------------------Page title---------- */}
+              <PageTitle title={"All Categories"}/>
             <div
                 className='min-h-[70vh] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://th.bing.com/th/id/R.e34aaca44ca8d569f778209bd74f3626?rik=VAXeY7z%2fHJ30tQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6HyzwVS.jpg&ehk=ecdLGSXUlco6Xzkx4M8i3NfxKOk4PqvNNCAKhb389D0%3d&risl=&pid=ImgRaw&r=0)] bg-center flex justify-center items-center'>
                 <div className="text-6xl md:text-8xl lg:text-9xl text-[#ff98d9] font-rancho">

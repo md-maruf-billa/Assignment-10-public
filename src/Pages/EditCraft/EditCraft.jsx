@@ -3,6 +3,7 @@ import background from '../../assets/image/formbg.png'
 import { useLocation } from 'react-router-dom';
 import Button from '../../Utils/Button';
 import Swal from 'sweetalert2';
+import PageTitle from '../../Utils/PageTitle';
 const EditCraft = () => {
     const location = useLocation();
 
@@ -68,6 +69,8 @@ const EditCraft = () => {
 
     return (
         <div className='px-5' style={{ backgroundImage: `url(${background})` }}>
+              {/* ------------------Page title---------- */}
+              <PageTitle title={"Edit Craft"}/>
             <div className='container mx-auto mt-[110px]'>
                 {/* --------------Form section-------------- */}
 

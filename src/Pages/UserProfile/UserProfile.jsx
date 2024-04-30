@@ -4,6 +4,7 @@ import bg from '../../assets/image/formbg.png'
 import { updateProfile } from 'firebase/auth';
 import auth from '../../Utils/FireBase/firebase.config';
 import Swal from 'sweetalert2';
+import PageTitle from '../../Utils/PageTitle';
 
 const UserProfile = () => {
     const { currentUser, setLoading } = useContext(userContext)
@@ -34,6 +35,8 @@ const UserProfile = () => {
     return (
 
         <div style={{ backgroundImage: `url(${bg})` }}>
+            {/* ------------------Page title---------- */}
+            <PageTitle title={"Update Profile"} />
             <div
                 data-aos="zoom-in-up"
                 data-aos-duration="1500"

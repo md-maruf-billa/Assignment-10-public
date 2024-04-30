@@ -5,6 +5,7 @@ import Button from '../../Utils/Button';
 import { Typewriter } from 'react-simple-typewriter';
 import Lottie from 'lottie-react';
 import groovyWalkAnimation from "../../assets/Animation - 1714310323427.json";
+import PageTitle from '../../Utils/PageTitle';
 const AllArtAndCraft = () => {
     const [loading, setLoading] = useState(true);
     const [displayData, setDisplayData] = useState([]);
@@ -48,6 +49,8 @@ const AllArtAndCraft = () => {
 
     return (
         <div style={{ backgroundImage: `url(${bg})` }} className='min-h-[calc(100vh-320px)] bg-no-repeat bg-cover' >
+              {/* ------------------Page title---------- */}
+              <PageTitle title={"All Craft"}/>
             <div
                 data-aos="zoom-in-up" data-aos-duration="1500"
                 className='min-h-[70vh] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://th.bing.com/th/id/R.e34aaca44ca8d569f778209bd74f3626?rik=VAXeY7z%2fHJ30tQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6HyzwVS.jpg&ehk=ecdLGSXUlco6Xzkx4M8i3NfxKOk4PqvNNCAKhb389D0%3d&risl=&pid=ImgRaw&r=0)] bg-center flex justify-center items-center'>

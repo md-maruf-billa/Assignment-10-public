@@ -3,6 +3,7 @@ import Button from '../../Utils/Button';
 import background from '../../assets/image/formbg.png'
 import { userContext } from '../../Utils/DataProvider/DataProvider';
 import Swal from 'sweetalert2';
+import PageTitle from '../../Utils/PageTitle';
 
 const AddCraftItems = () => {
     //------------get current user form context-----------
@@ -65,6 +66,9 @@ const AddCraftItems = () => {
 
     return (
         <div className='px-5' style={{ backgroundImage: `url(${background})` }}>
+
+            {/* ------------------Page title---------- */}
+            <PageTitle title={"Add Craft"}/>
             <div className='container mx-auto mt-[110px]'>
                 {/* --------------Form section-------------- */}
 

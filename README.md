@@ -25,4 +25,5 @@ This project is a web application built with React, Firebase, and MongoDB..
 - Swiper
 - tailwindcss
 - daisyUI
+- React-helmet
 

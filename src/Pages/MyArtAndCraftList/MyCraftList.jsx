@@ -8,6 +8,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import groovyWalkAnimation from "../../assets/Animation - 1714310323427.json";
 import Lottie from 'lottie-react';
 import bg from '../../assets/image/formbg.png'
+import PageTitle from '../../Utils/PageTitle';
 
 const MyCraftList = () => {
     const [loading, setLoading] = useState(true);
@@ -57,6 +58,8 @@ const MyCraftList = () => {
 
     return (
         <div className='min-h-[calc(100vh-350px)]' style={{ backgroundImage: `url(${bg})` }}>
+            {/* ------------------Page title---------- */}
+            <PageTitle title={"My Craft list"} />
             <div
                 data-aos="zoom-in-up" data-aos-duration="1500"
                 className='bg-[linear-gradient(45deg,rgba(0,0,0,.1),rgba(0,0,0,0.7)),url(https://i.postimg.cc/rsPj48PM/bg.jpg)] min-h-[60vh] bg-no-repeat  bg-center object-cover bg-cover flex justify-center items-center'>

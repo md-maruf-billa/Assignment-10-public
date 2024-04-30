@@ -8,6 +8,7 @@ import { userContext } from '../../Utils/DataProvider/DataProvider';
 import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
 import auth from '../../Utils/FireBase/firebase.config';
+import PageTitle from '../../Utils/PageTitle';
 
 const Registration = () => {
     const { signUpUser } = useContext(userContext)
@@ -95,7 +96,8 @@ const Registration = () => {
             data-aos="zoom-in-up"
             data-aos-duration="1500"
             className='min-h-screen container mx-auto flex  justify-center items-center  text-black px-3 md:px-0 my-5' >
-
+                  {/* ------------------Page title---------- */}
+            <PageTitle title={"Registration"}/>
             <form onSubmit={handleSubmit(handelRegister)} className=' px-10 md:px-14 py-10 rounded-lg border-2 border-[#FF76CE]' style={{ backgroundImage: `url(${formbg})` }}>
                 <h3 className='text-center font-rancho text-5xl mb-10 text-[#FF76CE]'>Register Now</h3>
 

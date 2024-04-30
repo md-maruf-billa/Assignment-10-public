@@ -5,6 +5,7 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../assets/Animation - 1714310323427.json";
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import Button from '../../Utils/Button';
+import PageTitle from '../../Utils/PageTitle';
 const Home = () => {
     const [allData, setAllData] = useState([]);
     const [dataLength, setDataLength] = useState(6);
@@ -28,6 +29,8 @@ const Home = () => {
     }
     return (
         <div className='bg-[url(https://www.pngmart.com/files/13/Elegant-Pattern-Transparent-PNG.png)]'>
+            {/* ----------Page title------------------- */}
+            <PageTitle title={"Home"}/>
 
             {/* ------------Banner Slide Hare----------- */}
 
@@ -152,7 +155,7 @@ const Home = () => {
                                     <div
                                         data-aos="fade-up" data-aos-duration="1500"
 
-                                        className='container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-20'>
+                                        className='container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-20'>
                                         {
                                             allData.map(data => <div data-aos="zoom-in-up" data-aos-duration="1000" key={data._id}>
                                                 <img className='w-full h-[100px] md:h-[180px] lg:h-[300px] object-cover rounded-2xl' src={data.photoURL} alt="" />
