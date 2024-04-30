@@ -41,7 +41,7 @@ const CraftCard = ({ data }) => {
                         </p>
                     </div>
                 </div>
-                <Link className='w-full' state={_id} to={`details/${_id}`}>
+                <Link className='w-full' state={_id} to={`/details/${_id}`}>
                     <Button btnName={"View Details"} size={"w-full"} />
                 </Link>
             </div>

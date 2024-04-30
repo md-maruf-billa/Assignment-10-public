@@ -17,8 +17,6 @@ const Login = () => {
     const [eye, setEye] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
-    const navigateRoute = () => { navigate(location.state ? location.state : "/") };
-
     const {
         register,
         handleSubmit
@@ -31,6 +29,7 @@ const Login = () => {
                     text: "You are successfully Logged In.",
                     icon: "success"
                 });
+                navigate(location.state ? location.state : "/") 
             })
             .catch(err => {
                 Swal.fire({

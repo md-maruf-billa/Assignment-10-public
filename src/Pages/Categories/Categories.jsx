@@ -6,14 +6,12 @@ import groovyWalkAnimation from '../../assets/Animation - 1714310323427.json'
 import Lottie from 'lottie-react';
 const Categories = () => {
     const location = useLocation();
-    console.log(location)
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         fetch(`https://canvas-creations-server.vercel.app/category/${location.state}`)
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
-    console.log(categories)
     return (
         <div>
             <div
