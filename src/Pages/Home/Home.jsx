@@ -88,10 +88,10 @@ const Home = () => {
                                     </p>
                                 </div>
 
-                                <div className='flex flex-col lg:flex-row items-center mt-10 lg:mt-2'>
+                                <div className='flex flex-col lg:flex-row items-center mt-10 gap-8 lg:gap-0 lg:mt-2'>
                                     <div className='lg:w-1/2 relative' data-aos="zoom-in-up" data-aos-duration="1500">
                                         <img className='rounded-md' src="https://www.culturalartscenteronline.org/wp-content/uploads/2019/08/Gallery-Image-3-Op.-Mon.jpg" alt="" />
-                                        <div className='absolute bg-[#FF76CE] z-50 text-white w-[200px] h-[50px] flex justify-center items-center  -bottom-5 -right-5'>
+                                        <div className='absolute bg-[#FF76CE] text-white w-[200px] h-[50px] flex justify-center items-center  -bottom-5 -right-5'>
                                             <p className='font-rancho italic text-xl'>You Are Invited.</p>
                                         </div>
                                     </div>
