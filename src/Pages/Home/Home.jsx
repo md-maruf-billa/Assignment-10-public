@@ -4,8 +4,10 @@ import CraftCard from '../../Components/CraftCard/CraftCard';
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../assets/Animation - 1714310323427.json";
 import { FaRegCalendarAlt } from 'react-icons/fa';
+import Button from '../../Utils/Button';
 const Home = () => {
     const [allData, setAllData] = useState([]);
+    const [dataLength ,setDataLength] = useState(6)
 
     useEffect(() => {
         fetch('https://canvas-creations-server.vercel.app/')
@@ -15,7 +17,14 @@ const Home = () => {
                 setAllData(data);
             })
     }, [])
-
+    const handelShowAll = (value) => {
+        if(value == "showLess"){
+            setDataLength(6)
+        }
+        else if(value == "showAll"){
+            setDataLength(allData.length)
+        }
+    }
     return (
         <div className='bg-[url(https://www.pngmart.com/files/13/Elegant-Pattern-Transparent-PNG.png)]'>
 
@@ -44,8 +53,19 @@ const Home = () => {
                                 <Lottie animationData={groovyWalkAnimation} />
                             </div>
                             :
-                            allData.map(data => <CraftCard data={data} key={data._id} />)
+                            allData.slice(0,dataLength).map(data => <CraftCard data={data} key={data._id} />)
 
+                    }
+                </div>
+                <div className='flex justify-center mt-10'>
+                    {
+                        dataLength > 6 ?
+                            <button onClick={()=>handelShowAll("showLess")}>
+                                <Button btnName={"See Less"} />
+                            </button> :
+                            <button onClick={()=>handelShowAll("showAll")}>
+                                <Button btnName={"See All Arts"} />
+                            </button>
                     }
                 </div>
             </div>
@@ -120,17 +140,23 @@ const Home = () => {
 
                     </p>
                 </div>
-                <div 
-                data-aos="fade-up" data-aos-duration="1500"
-                
-                className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20'>
-                    {
-                        allData.map(data => <div data-aos="zoom-in-up" data-aos-duration="1000" key={data._id}>
-                            <img className='w-full h-[300px] lg:h-[400px] object-cover rounded-2xl' src={data.photoURL} alt="" />
-                        </div>)
-                    }
+                {
+                    allData.length == 0 ?
+                        <div className='col-span-full flex justify-center items-center'>
+                            <Lottie animationData={groovyWalkAnimation} />
+                        </div> :
+                        <div
+                            data-aos="fade-up" data-aos-duration="1500"
 
-                </div>
+                            className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20'>
+                            {
+                                allData.map(data => <div data-aos="zoom-in-up" data-aos-duration="1000" key={data._id}>
+                                    <img className='w-full h-[300px] lg:h-[400px] object-cover rounded-2xl' src={data.photoURL} alt="" />
+                                </div>)
+                            }
+
+                        </div>
+                }
             </div>
         </div>
     );
