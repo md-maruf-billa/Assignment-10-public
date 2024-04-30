@@ -5,7 +5,6 @@ import Button from '../../Utils/Button';
 import { Typewriter } from 'react-simple-typewriter';
 import Lottie from 'lottie-react';
 import groovyWalkAnimation from "../../assets/Animation - 1714310323427.json";
-import { CgArrowLongRight } from 'react-icons/cg';
 const AllArtAndCraft = () => {
     const [displayData, setDisplayData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
@@ -46,7 +45,7 @@ const AllArtAndCraft = () => {
     }, [filteredData])
 
     return (
-        <div className='min-h-[calc(100vh-320px)] bg-no-repeat bg-cover' >
+        <div style={{ backgroundImage: `url(${bg})` }} className='min-h-[calc(100vh-320px)] bg-no-repeat bg-cover' >
             <div 
             data-aos="zoom-in-up" data-aos-duration="1500"
             className='min-h-[70vh] bg-[linear-gradient(45deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7)),url(https://th.bing.com/th/id/R.e34aaca44ca8d569f778209bd74f3626?rik=VAXeY7z%2fHJ30tQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f6HyzwVS.jpg&ehk=ecdLGSXUlco6Xzkx4M8i3NfxKOk4PqvNNCAKhb389D0%3d&risl=&pid=ImgRaw&r=0)] bg-center flex justify-center items-center'>
@@ -64,7 +63,7 @@ const AllArtAndCraft = () => {
                     />
                 </div>
             </div>
-            <div style={{ backgroundImage: `url(${bg})` }}>
+            <div>
                 <div 
                 data-aos="zoom-in-up" data-aos-duration="1000"
                 className='container mx-auto flex justify-end mt-10'>
@@ -90,8 +89,8 @@ const AllArtAndCraft = () => {
                                     <tr>
 
                                         <th>Art & Craft Name</th>
-                                        <th className='hidden md:block'>Description / Price</th>
-                                        <th>Price</th>
+                                        <th className='hidden md:block'>Description</th>
+                                        <th>Customization</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -123,9 +122,9 @@ const AllArtAndCraft = () => {
 
                                                 <span className="badge badge-ghost badge-sm">{data.stock}</span>
 
-                                                <span className="badge badge-ghost badge-sm">Customization: {data.customizable}</span>
+                                                <span className="badge badge-ghost badge-sm">Price: {data.price} $</span>
                                             </td>
-                                            <td>{data.price} $</td>
+                                            <td>{data.customizable}</td>
                                             <th>
                                                 <Link state={data._id} to={`/details/${data._id}`}>
                                                     <Button btnName={"Details"} size={"btn-sm text-xs"} />

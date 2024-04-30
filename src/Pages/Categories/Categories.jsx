@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CraftCard from '../../Components/CraftCard/CraftCard';
 import { Typewriter } from 'react-simple-typewriter';
-
+import groovyWalkAnimation from '../../assets/Animation - 1714310323427.json'
+import Lottie from 'lottie-react';
 const Categories = () => {
     const location = useLocation();
     console.log(location)
@@ -32,10 +33,16 @@ const Categories = () => {
                 </div>
             </div>
 
-
-            <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10'>
+            <div className='px-4'>
                 {
-                    categories.map(category => <CraftCard data={category}></CraftCard>)
+                    categories.length == 0 ? <div className='col-span-full flex justify-center items-center mt-20'>
+                        <Lottie animationData={groovyWalkAnimation} />
+                    </div> :
+                        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10'>
+                            {
+                                categories.map(category => <CraftCard data={category}></CraftCard>)
+                            }
+                        </div>
                 }
             </div>
         </div>
