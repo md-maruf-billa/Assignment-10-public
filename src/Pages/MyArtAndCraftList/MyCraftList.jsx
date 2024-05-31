@@ -10,19 +10,20 @@ import Lottie from 'lottie-react';
 import bg from '../../assets/image/formbg.png'
 import PageTitle from '../../Utils/PageTitle';
 
+
 const MyCraftList = () => {
     const [loading, setLoading] = useState(true);
     const [allItems, setAllItems] = useState([]);
     const { currentUser } = useContext(userContext);
     useEffect(() => {
-        fetch(`https://canvas-creations-server.vercel.app/my-art-and-craftList/${currentUser.email}`)
+        fetch(import.meta.env.VITE_URL_LINK+`/my-art-and-craftList/${currentUser.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 setAllItems(data);
                 setLoading(false);
             })
     }, [])
-
+  
 
     const handelDelete = (id) => {
         Swal.fire({

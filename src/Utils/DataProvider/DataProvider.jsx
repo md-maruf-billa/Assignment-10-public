@@ -10,6 +10,7 @@ import {
 } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import auth from '../FireBase/firebase.config';
+import axios from 'axios';
 
 export const userContext = createContext(null);
 
@@ -49,9 +50,9 @@ const DataProvider = ({ children }) => {
         return signInWithPopup(auth, gitHubProvider)
     }
     // ------------------Facebook login--------
-    const faceBookLogin =()=>{
+    const faceBookLogin = () => {
         setLoading(true);
-        return signInWithPopup(auth,facebookProvider);
+        return signInWithPopup(auth, facebookProvider);
     }
     //-------------sign Out user------------
 
@@ -69,7 +70,10 @@ const DataProvider = ({ children }) => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                const data = { email: user.email }
                 setCurrentUser(user);
+                axios.post("http://localhost:7000/verify", data, { withCredentials: true })
+                    .then(data => console.log(data.data))
             }
             else {
                 setCurrentUser([])

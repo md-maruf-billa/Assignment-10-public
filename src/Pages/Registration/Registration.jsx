@@ -93,8 +93,6 @@ const Registration = () => {
 
     return (
         <div
-            data-aos="zoom-in-up"
-            data-aos-duration="1500"
             className='min-h-screen container mx-auto flex  justify-center items-center  text-black px-3 md:px-0 my-5' >
                   {/* ------------------Page title---------- */}
             <PageTitle title={"Registration"}/>

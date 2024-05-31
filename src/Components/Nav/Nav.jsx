@@ -7,11 +7,12 @@ import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
 import { Typewriter } from 'react-simple-typewriter';
 import { IoMdLogOut } from 'react-icons/io';
+import axios from 'axios';
 
 
 const Nav = () => {
-       // -----------get user from context-----------
-       const { currentUser, logOutUser } = useContext(userContext);
+    // -----------get user from context-----------
+    const { currentUser, logOutUser } = useContext(userContext);
     const [reRender, setRerender] = useState(false);
     const navElement = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -28,7 +29,7 @@ const Nav = () => {
     </>
 
 
- 
+
 
     // -----------Handel logOut user--------
     const logOut = () => {
@@ -39,6 +40,8 @@ const Nav = () => {
                     text: "You are successfully LogOut.",
                     icon: "success"
                 });
+                axios.get(import.meta.env.VITE_URL_LINK+"/logout", { withCredentials: true })
+                    .then(data => console.log(data.data))
             })
             .catch(err => {
                 Swal.fire({
