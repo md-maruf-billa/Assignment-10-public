@@ -3,6 +3,17 @@
 ## Description
 This project is a web application built with React, Firebase, and MongoDB..
 
+### How to run it in your computer
+
+```
+// Replace all api key in .env file
+git clone https://github.com/md-maruf-billa/Assignment-10-public.git
+
+npm install
+
+npm run dev
+```
+
 ## Features
 - Password based Login / Registration system
 - Google , Facebook , Github and Twitter Login system.
